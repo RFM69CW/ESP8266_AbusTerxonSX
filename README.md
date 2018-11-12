@@ -10,7 +10,7 @@ To integrate an Abus Terxon SX Alarmsystem in your SmartHome.
 To control the system with your iPhone you need a running HomeBridge system.
 I use this plugin: (https://github.com/codetwice/homebridge-http-securitysystem#readme)
 
-### Configuratioin
+### Configuration
 
 ```
 {
