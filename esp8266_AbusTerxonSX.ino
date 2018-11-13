@@ -5,7 +5,23 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager
 #include <ArduinoJson.h>          //https://github.com/bblanchon/ArduinoJson
-#include <RFControl.h>
+/*
+ * Settings
+ */
+//initial wifi app
+const char* config_ssid = "esp8266TerxonSX";
+const char* config_password = "terxonAbus";
+//HTTP basic auth
+const char* WWW_USERNAME = "terxonAlarm";
+const char* WWW_PASSWORD = "esp8266";
+
+const int RESET_PIN = 14; //D5 on nodeMCU
+const int ARM_DISARM_PIN = 4; //D2 on nodeMCU
+const int ALARM_STATUS_PIN = 5; //D1 on nodeMCU
+
+/*
+ * 
+ */
 
 //flag for saving data
 bool shouldSaveConfig = false;
@@ -25,6 +41,7 @@ void setup() {
   //setup gpios
   Serial.println(F("GPIO setup..."));
   pinMode(RESET_PIN, INPUT_PULLUP);
+  setupAlarmGpios(ARM_DISARM_PIN, ALARM_STATUS_PIN);
 
   setupResetHandling(wifiManager, RESET_PIN);
  
@@ -46,6 +63,7 @@ void setup() {
   
   Serial.println(F("local ip:"));
   Serial.println(WiFi.localIP());
+  printAvailableRam();
 }
 
 void loop() {

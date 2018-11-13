@@ -5,6 +5,12 @@ enum StatesTemp {
 };
 enum StatesTemp actualState = disarmed;
 
+void setupAlarmGpios(const int ARM_DISARM_PIN, const int ALARM_STATUS_PIN) {
+  pinMode(ARM_DISARM_PIN, OUTPUT);
+  digitalWrite(ARM_DISARM_PIN, LOW);
+  pinMode(ALARM_STATUS_PIN, INPUT);
+}
+
 void setupAlarmEndpoints() {
   server->on("/alarm/arm", armAlarm);
   server->on("/alarm/disarm", disarmAlarm);

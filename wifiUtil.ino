@@ -7,7 +7,11 @@ void authenticateUser() {
 void setupDefaultEndpoints() {
   server->on("/", []() {
     authenticateUser();
-    server->send(200, "text/plain", "Login OK");
+    String message = "<html><body>\n\n";
+    message += "<div>Available Ram: ";
+    message += ESP.getFreeHeap();
+    message += "</div>\n</body></html>";
+    server->send(200, "text/plain", message);
   });
 
   server->onNotFound(handleNotFound);
