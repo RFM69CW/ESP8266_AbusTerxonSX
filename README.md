@@ -13,6 +13,13 @@ Abus Terxon SX
 
 ### Installation
 
+| NodeMCU pin   | Terxon        | Relais Board  | Function |
+| ------------- |-------------  |---------------| -------- |
+| VU (5V)       |               | JD VCC        | 5 V for relais coil |
+| D1            | AlarmStatusPin|               | Status armed/disarmed |
+| D2            |               | Relais in     | Action armed/disarmed |
+| D6            | AlarmActivePin|               | Status alarm triggered |
+
 ## Apple HomeKit
 
 To control the system with your iPhone you need a running HomeBridge system.

@@ -7,10 +7,8 @@ void authenticateUser() {
 void setupDefaultEndpoints() {
   server->on("/", []() {
     authenticateUser();
-    String message = "<html><body>\n\n";
-    message += "<div>Available Ram: ";
+    String message = "Available Ram: ";
     message += ESP.getFreeHeap();
-    message += "</div>\n</body></html>";
     server->send(200, "text/plain", message);
   });
 
