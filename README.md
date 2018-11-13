@@ -60,29 +60,6 @@ I use this plugin: (https://github.com/codetwice/homebridge-http-securitysystem#
                     }
                 }
             },
-            "mappers": [
-                {
-                    "type": "xpath",
-                    "parameters": {
-                        "xpath": "//partition[3]/text()"
-                    }
-                },
-                {
-                    "type": "regex",
-                    "parameters": {
-                        "regexp": "^The system is currently (ARMED|DISARMED), yo!$",
-                        "capture": "1"
-                    }
-                },
-                {
-                    "type": "static",
-                    "parameters": {
-                        "mapping": {
-                            "ARMED": "0",
-                            "DISARMED": "3"
-                        }
-                    }
-                }
-            ]
+            "mappers": []
         }
 ```
