@@ -25,7 +25,6 @@ void setup() {
   //setup gpios
   Serial.println(F("GPIO setup..."));
   pinMode(RESET_PIN, INPUT_PULLUP);
-  //todo 
 
   setupResetHandling(wifiManager, RESET_PIN);
  

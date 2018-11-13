@@ -1,8 +1,9 @@
-// states for homebridge
-// 1: away armed
-// 3: disarmed
-// 4: alarm has been triggered
-String actualState = "3";
+enum StatesTemp {
+  armed = 1,
+  disarmed = 3,
+  alarmActive = 4
+};
+enum StatesTemp actualState = disarmed;
 
 void setupAlarmEndpoints() {
   server->on("/alarm/arm", armAlarm);
@@ -11,27 +12,31 @@ void setupAlarmEndpoints() {
 }
 
 void armAlarm() {
-   Serial.println(F("Arm alarm system"));
+  Serial.println(F("Arm alarm system"));
   authenticateUser();
-  actualState = "1";
-  sendStateToServer(actualState);
+  if(actualState == disarmed) {
+    actualState = armed;
+  }
+  sendStateToServer();
 }
 
 void disarmAlarm() {
   Serial.println(F("Disarm alarm system"));
   authenticateUser();
-  actualState = "3";
-  sendStateToServer(actualState);
+  if(actualState == armed) {
+    actualState = disarmed;
+  }
+  sendStateToServer();
 }
 
 void checkAlarmStatus() {
   Serial.println(F("Check status"));
   authenticateUser();
   
-  sendStateToServer(actualState);
+  sendStateToServer();
 }
 
-void sendStateToServer(String actualState) {
-  server->send(200, F("text/html"), actualState);
+void sendStateToServer() {
+  server->send(200, F("text/html"), actualState + "");
 }
 

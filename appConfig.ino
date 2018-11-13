@@ -1,4 +1,4 @@
-//initial wifi ap
+//initial wifi app
 const char* config_ssid = "esp8266TerxonSX";
 const char* config_password = "terxonAbus";
 //HTTP basic auth
