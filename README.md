@@ -3,7 +3,15 @@
 To integrate an Abus Terxon SX Alarmsystem in your SmartHome.
 
 ## Hardware
+### Controller
 
+NodeMCU V3.2 Arduino ESP8266 ESP-12 E 
+
+### Alarm system
+
+Abus Terxon SX
+
+### Installation
 
 ## Apple HomeKit
 
