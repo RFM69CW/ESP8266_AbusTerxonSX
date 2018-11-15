@@ -86,4 +86,4 @@ I use this plugin: (https://github.com/codetwice/homebridge-http-securitysystem#
 
 ## Keywords
 
-Smart Home, ABUS Terxon SX, Arduino, ESP8266, Apple Homekit, Alarm system
+Smart Home, ABUS Terxon SX, Arduino, ESP8266, Apple Homekit, Alarm system, Abus AZ4000
