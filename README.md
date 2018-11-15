@@ -20,7 +20,7 @@ Abus Terxon SX
 | D2            |               | Relais in     | Action armed/disarmed |
 | D6            | AlarmActivePin|               | Status alarm triggered |
 
-![Schematic could not be load](img/esp8266_abusterxonsx_schematic_v2.jpg?raw=true "Schematic")
+![Schematic could not be load](img/esp8266_abusterxonsx_schematic_v3.jpg?raw=true "Schematic")
 
 ## Apple HomeKit
 
