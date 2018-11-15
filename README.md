@@ -2,6 +2,12 @@
 
 To integrate an Abus Terxon SX Alarmsystem in your SmartHome.
 
+## Features
+* See actual status of the alarm system.
+* *rm and disarm the alarm system via browser or Apple Homekit (OpenHab etc. is also possible).
+* Push message when alarm was triggered (Homekit).
+* *Limitation:* It is possible to disable a triggered alarm but to arm the system again it is necessary to reset it with the control panel.
+
 ## Hardware
 ### Controller
 
@@ -10,6 +16,11 @@ NodeMCU V3.2 Arduino ESP8266 ESP-12 E
 ### Alarm system
 
 Abus Terxon SX
+
+### Additional Hardware
+* 12 V relay
+* Relay board with optocoppler (relay board arduino)
+* 10 k resistor
 
 ### Installation
 
@@ -72,3 +83,7 @@ I use this plugin: (https://github.com/codetwice/homebridge-http-securitysystem#
             "mappers": []
         }
 ```
+
+## Keywords
+
+Smart Home, ABUS Terxon SX, Arduino, ESP8266, Apple Homekit, Alarm system

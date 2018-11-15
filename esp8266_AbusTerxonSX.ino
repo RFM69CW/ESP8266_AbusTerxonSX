@@ -16,7 +16,7 @@ const char* WWW_USERNAME = "terxonAlarm";
 const char* WWW_PASSWORD = "esp8266";
 
 const int RESET_PIN = 14; //D5 on nodeMCU
-#define TOGGLE_MS 500
+#define TOGGLE_MS 3000
 const int ARM_DISARM_PIN = 4; //D2 on nodeMCU (LOW ACTIVE RELAIS BOARD)
 const int ALARM_STATUS_PIN = 5; //D1 on nodeMCU
 const int ALARM_ACTIVE_PIN = 12; //D6 on nodeMCU
@@ -37,7 +37,7 @@ void setup() {
   //Local intialization. Once its business is done, there is no need to keep it around
   //needs to be in the beginning for accessing settings reset on reset pin
   WiFiManager wifiManager;
-  
+  //wifiManager.resetSettings(); //to change accesspoint
   Serial.begin(115200);
   Serial.println();
   //setup gpios

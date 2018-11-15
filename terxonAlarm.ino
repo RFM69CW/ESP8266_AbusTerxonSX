@@ -21,7 +21,7 @@ void setupAlarmEndpoints() {
 void armAlarm() {
   Serial.println(F("Arm alarm system"));
   authenticateUser();
-  if(actualState == disarmed) {
+  if(actualState != armed) {
     changeAlarmstate();
     actualState = armed;
   } else {
@@ -33,7 +33,7 @@ void armAlarm() {
 void disarmAlarm() {
   Serial.println(F("Disarm alarm system"));
   authenticateUser();
-  if(actualState == armed) {
+  if(actualState != disarmed) {
     changeAlarmstate();
     actualState = disarmed;
   } else {
@@ -45,13 +45,14 @@ void disarmAlarm() {
 void checkAlarmStatus() {
   Serial.println(F("Check status"));
   authenticateUser();
-  if(digitalRead(ALARM_STATUS_PIN)) {
+  // Low active - LOW armed
+  if(!digitalRead(ALARM_STATUS_PIN)) {
     actualState = armed;
   } else {
     actualState = disarmed;
   }
-
-  if(digitalRead(ALARM_ACTIVE_PIN)) {
+  // Low active - LOW alarm
+  if(!digitalRead(ALARM_ACTIVE_PIN)) {
     Serial.println(F("ALARM!!!"));
     actualState = alarmActive;
   }
