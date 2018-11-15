@@ -4,7 +4,7 @@ To integrate an Abus Terxon SX Alarmsystem in your SmartHome.
 
 ## Features
 * See actual status of the alarm system.
-* *rm and disarm the alarm system via browser or Apple Homekit (OpenHab etc. is also possible).
+* arm and disarm the alarm system via browser or Apple Homekit (OpenHab etc. is also possible).
 * Push message when alarm was triggered (Homekit).
 * *Limitation:* It is possible to disable a triggered alarm but to arm the system again it is necessary to reset it with the control panel.
 
