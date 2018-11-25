@@ -1,3 +1,5 @@
+int activeCount = 0;
+
 enum StatesTemp {
   armed = 1,
   disarmed = 3,
@@ -33,11 +35,25 @@ void armAlarm() {
 void disarmAlarm() {
   Serial.println(F("Disarm alarm system"));
   authenticateUser();
-  if(actualState != disarmed) {
+
+  if(actualState == armed) {
     changeAlarmstate();
     actualState = disarmed;
-  } else {
+    Serial.println(F("==>Alarm was armed -> disarm"));
+  }
+  else if(actualState == alarmActive && activeCount > 0) {
+    changeAlarmstate();
+    actualState = disarmed;
+    activeCount = 0;
+    Serial.println(F("==>Alarm is active -> disarm"));
+  }
+  else if(actualState == alarmActive && activeCount == 0) {
+    activeCount++;
+    Serial.println(F("==>Keep Alarm active allow disarm next time"));
+  }
+  else {
     Serial.println(F("==>Alarm was already disarmed"));
+    activeCount = 0;
   }
   sendStateToServer();
 }
